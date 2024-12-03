@@ -16,6 +16,7 @@ namespace StockTracker {
         std::optional<std::string> error;
         std::optional<std::vector<StockQuote>> priceHistory;
         std::optional<std::vector<std::string>> subscriptions; // For subscriptions list
+        std::string currency;
 
         // Static factory methods (declarations only)
         static Message makeSubscribe(std::string symbol);
@@ -27,6 +28,7 @@ namespace StockTracker {
         static Message makeSubscriptionsList(const std::vector<std::string>& subscriptions);
         static Message makeRequestPriceHistory(const std::string& symbol);  // Request price history
         static Message makePriceHistory(const std::string& symbol, const std::vector<StockQuote>& history);
+        static Message makeSetCurrency(std::string currency_code);
     };
 
     // JSON serialization declarations

@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\CurrencyService.cpp" />
     <ClCompile Include="src\DataBaseService.cpp" />
     <ClCompile Include="src\Messages.cpp" />
     <ClCompile Include="src\Types.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\StockTracker\CurrencyService.h" />
     <ClInclude Include="include\StockTracker\DatabaseService.h" />
     <ClInclude Include="include\StockTracker\Messages.h" />
     <ClInclude Include="include\StockTracker\Types.h" />

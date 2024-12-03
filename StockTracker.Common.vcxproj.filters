@@ -24,6 +24,9 @@
     <ClCompile Include="src\DataBaseService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\CurrencyService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\StockTracker\Messages.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\StockTracker\DatabaseService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StockTracker\CurrencyService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

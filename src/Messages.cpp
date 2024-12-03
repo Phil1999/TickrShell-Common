@@ -56,6 +56,18 @@ namespace StockTracker {
         };
     }
 
+    Message Message::makeSetCurrency(std::string currency_code) {
+        return Message{
+            MessageType::SetCurrency,
+            "",  // no symbol required
+            std::nullopt,
+            std::nullopt,
+            std::nullopt,
+            std::nullopt,
+            std::move(currency_code)
+        };
+    }
+
     Message Message::makeError(std::string error) {
         return Message{
             MessageType::Error,
@@ -69,7 +81,8 @@ namespace StockTracker {
     void to_json(json& j, const Message& msg) {
         j = json{
             {"type", msg.type},
-            {"symbol", msg.symbol}
+            {"symbol", msg.symbol},
+            {"currency", msg.currency}
         };
         if (msg.quote) {
             j["quote"] = *msg.quote;
@@ -88,6 +101,8 @@ namespace StockTracker {
     void from_json(const json& j, Message& msg) {
         j.at("type").get_to(msg.type);
         j.at("symbol").get_to(msg.symbol);
+
+        msg.currency = j.value("currency", "");
 
         if (j.contains("quote") && !j["quote"].is_null()) {
             msg.quote = j.at("quote").get<StockQuote>();

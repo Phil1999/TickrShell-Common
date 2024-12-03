@@ -12,6 +12,7 @@ namespace StockTracker {
         double price; // Current price of stock.
         std::chrono::system_clock::time_point timestamp; // When the price was recorded
         std::optional<double> change_percent; // Percent change
+        std::string currency{ "USD" }; // USD default
 
         // Static factory method to easily create a StockQuote.
         static StockQuote create(std::string sym, double price_val);
@@ -31,6 +32,7 @@ namespace StockTracker {
         RequestSubscriptions,   // Request for list of subscriptions
         PriceHistoryRequest,    // Request price history for a stock.
         PriceHistoryResponse,   // Response to price history request, sends history back to CLI
+        SetCurrency,            // Setting the currency.
         Error                   // Something went wrong
     };
 
@@ -46,6 +48,7 @@ namespace StockTracker {
         {MessageType::PriceHistoryResponse, "price_history_response"},
         {MessageType::SubscriptionsList, "subscriptions_list"},
         {MessageType::RequestSubscriptions, "request_subscriptions"},
+        {MessageType::SetCurrency, "set_currency"},
         {MessageType::Error, "error"}
     })
 
