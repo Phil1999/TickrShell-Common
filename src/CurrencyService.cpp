@@ -43,7 +43,7 @@ namespace StockTracker {
         socket->send(zmq::buffer(request_str), zmq::send_flags::none);
 
         // Set timeout for receive
-        socket->set(zmq::sockopt::rcvtimeo, 1000); // 1 second timeout
+        socket->set(zmq::sockopt::rcvtimeo, 2000);
 
         // Receive response
         zmq::message_t reply;
